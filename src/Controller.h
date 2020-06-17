@@ -6,15 +6,17 @@
 #include <utility>
 #include <vector>
 #include "BinaryTree.h"
+#include "PersistenceManager.h"
 
 class Controller
 {
 private:
+    PersistenceManager database;
     std::unique_ptr<BinaryTree> tree{nullptr};
     web::http::experimental::listener::http_listener listener;
 
 public:
-    Controller(/* args */) = default;
+    Controller() = default;
     ~Controller() = default;
 
     /**

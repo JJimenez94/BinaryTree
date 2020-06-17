@@ -29,6 +29,8 @@ void Controller::HandleGet(http_request request)
         if (tree == nullptr)
             throw logic_error("Empty tree");
         auto internalResponse = tree->FindCommonAncestor(leafs.first, leafs.second);
+        //! As soon as we get the response, save it into DB
+        database.InsertLCAOperation(leafs.first, leafs.second, internalResponse);
         auto response = web::json::value::object();
         response[U("ancestor")] = web::json::value::number(internalResponse);
         request.reply(status_codes::OK, response);
@@ -54,8 +56,11 @@ void Controller::HandlePost(http_request request)
     {
         auto treeNodes = ProcessTreeBody(convertWString(request.extract_string().get())); //seems to be a wstring;
         PopulateTree(move(treeNodes));
+        auto traverse = tree->Traverse();
+        //! As soon as we get the response, save it into DB
+        database.InsertAVLTree(traverse);
         auto response = web::json::value::object();
-        response[U("tree")] = web::json::value::string(convertString(tree->Traverse()));
+        response[U("tree")] = web::json::value::string(convertString(traverse));
         request.reply(status_codes::OK, response);
     }
     catch (const exception &e)

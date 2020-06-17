@@ -37,7 +37,9 @@ add_executable(BinaryTree
         src/BinaryTree.cpp
         src/Controller.h
         src/Controller.cpp
-        src/Node.h)
+        src/Node.h
+        src/PersistenceManager.h
+        src/PersistenceManager.cpp)
 
 target_link_libraries(BinaryTree PRIVATE sqlite3)
 target_link_libraries(BinaryTree PRIVATE cpprestsdk::cpprest)
