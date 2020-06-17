@@ -52,7 +52,7 @@ void BinaryTree::DeleteNode(unique_ptr<Node> &stepNode, int key)
         stepNode = (tempNode->left != nullptr) ? move(tempNode->left) : move(tempNode->right);
     }
 
-    // Rebalance(root);
+    Rebalance(stepNode);
 }
 
 int BinaryTree::FindCommonAncestor(int firstValue, int secondValue)

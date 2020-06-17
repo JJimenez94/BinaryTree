@@ -35,6 +35,8 @@ add_executable(BinaryTree
         main.cpp 
         src/BinaryTree.h
         src/BinaryTree.cpp
+        src/Controller.h
+        src/Controller.cpp
         src/Node.h)
 
 target_link_libraries(BinaryTree PRIVATE sqlite3)

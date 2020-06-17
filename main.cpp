@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "src/BinaryTree.h"
-#include "src/Node.h"
+#include "src/Controller.h"
 
 using namespace std;
 
@@ -9,7 +9,6 @@ int main(int, char **)
 {
     std::cout << "Hello, world!\n";
 
-    // unique_ptr<Node> head{nullptr};
     BinaryTree test;
     test.InsertNode(5);
     test.InsertNode(4);
@@ -31,8 +30,17 @@ int main(int, char **)
     cout << "(4, 5): " << test.FindCommonAncestor(4, 5) << endl;
     cout << "(5, 26): " << test.FindCommonAncestor(5, 26) << endl;
     cout << "(5, 30): " << test.FindCommonAncestor(5, 30) << endl;
-    cout << "(5, 30): " << test.FindCommonAncestor(5, 30) << endl;
     cout << "(15, 35): " << test.FindCommonAncestor(15, 35) << endl;
-    
+
     cout << " ================= END ANCESTORS ============================ " << endl;
+
+    cout << " ================= PLAYING WEB ============================ " << endl;
+    Controller theControl;
+    theControl.Start();
+
+    cout << "Press any key to exit." << std::endl;
+    string line;
+    getline(cin, line);
+
+    theControl.Stop();
 }

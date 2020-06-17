@@ -15,6 +15,11 @@ public:
     BinaryTree() = default;
     ~BinaryTree() = default;
 
+    /**
+     * @brief Data modification operations include the adition & deletion of a node
+     *      
+     * @param key value to be added/deleted
+     */
     void InsertNode(int key);
     void DeleteNode(int key);
 
@@ -26,16 +31,21 @@ public:
      * @param secondValue Second value to be found.
      * @return int The first common ancestor between the two nodes
      */
-    int FindCommonAncestor(int firstValue, int secondValue);    
+    int FindCommonAncestor(int firstValue, int secondValue);
 
+    /**
+     * @brief method used to print the tree contents
+     *      
+     * @return std::string representation of the tree in form left - root - right
+     */
     std::string Traverse();
+
 private:
     /**
-     * @brief Data modification operations include the adition & deletion of a node
+     * @brief Auxiliar methods which supports data modification operations.
      * 
      * @param stepNode Node which will be iterated to add/delete the requested value
-     * @param key value to be added/deleted
-     * @return std::unique_ptr<Node> root node
+     * @param key value to be added/deleted     
      */
     void InsertNode(std::unique_ptr<Node> &stepNode, int key);
     void DeleteNode(std::unique_ptr<Node> &stepNode, int key);
