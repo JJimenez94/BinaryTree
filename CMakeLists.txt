@@ -31,7 +31,11 @@ find_package(SQLite3 CONFIG REQUIRED)
 find_package(cpprestsdk CONFIG REQUIRED)
 message("=============== END CONFIGURING DEPENDENCIES ===============")
 
-add_executable(BinaryTree main.cpp)
+add_executable(BinaryTree 
+        main.cpp 
+        src/BinaryTree.h
+        src/BinaryTree.cpp
+        src/Node.h)
 
 target_link_libraries(BinaryTree PRIVATE sqlite3)
 target_link_libraries(BinaryTree PRIVATE cpprestsdk::cpprest)
