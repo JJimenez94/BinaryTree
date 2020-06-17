@@ -56,3 +56,6 @@ build/
 
 # Local History for Visual Studio Code
 .history/
+
+# Test database
+AVL_Operations.db

@@ -48,3 +48,7 @@ This operation serves the feature of tree creation:
 > Currently the ip addres and port number of the web service are harcoded and should be consumed in the ip **127.0.0.1** and port **2777**
 
 An audit log of the transactions is saved into a SQLite database called `AVL_Operations.db` located in the current working directory. This database consists of two tables which holds the traversal paths of every created tree, and a copy of every request made to calculate common ancestors of two leafs when success.
+
+- Database Structure: ![Database structure](docs/DB_STRUCTURE.PNG)
+- Tree's Table example: ![Database structure](docs/AVL_DB.PNG)
+- Common Ancestor's Table example: ![Database structure](docs/LCA_DB.PNG)
